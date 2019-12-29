@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+  <link href="http://jqmdesigner.appspot.com/gk/lib/jquery.mobile/1.4.5/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css" />
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
+  <script>
+    $(document).on("mobileinit", function () {
+      $.mobile.autoInitializePage = false;
+      $.mobile.hashListeningEnabled = false;
+    });
+
+    function mobileInitPage() {
+      $.mobile.hashListeningEnabled = true;
+      $.mobile.initializePage();
+    }
+  </script>
+  <script src="https://www.google.com/recaptcha/api.js"></script>
+  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  <!-- Uncomment the following to include cordova in your android project -->
+  <!--<script src="http://jqmdesigner.appspot.com/platforms/android/cordova.js"></script>-->
+  <!-- GK Loader use RequireJS to load module -->
+  <script src="http://requirejs.org/docs/release/2.1.11/minified/require.js"></script>
+  <!--Plug in GK-->
+  <script src="http://jqmdesigner.appspot.com/components/jquery.gk/jquery.gk.min.js"></script>
+  <!-- Load GK components -->
+  <script components="http://jqmdesigner.appspot.com/components/gk-jquerymobile/content.html,http://jqmdesigner.appspot.com/components/gk-jquerymobile/page.html,http://jqmdesigner.appspot.com/components/gk-jquerymobile/footer.html,http://jqmdesigner.appspot.com/components/gk-ext/google-sheets-table.html,http://jqmdesigner.appspot.com/components/gk-jquerymobile/header.html"
+  callback="mobileInitPage" src="http://jqmdesigner.appspot.com/components/gk-loader/gk-loader.js"></script>
+  
+  <script src="https://www.google.com/recaptcha/api.js"></script>
+  <title>EZo App</title>
+</head>
+
+<body gk-app>
+
+<div id="home" data-role="page" is="page">
+  <div role="main" class="ui-content" is="content">
+    <h2 is="gk-text">Book your travel with us</h2>
+    <div is="collapsible-set" data-role="collapsibleset">
+      <div is="collapsible" data-role="collapsible" data-collapsed="true">
+        <h3>Tours</h3>
+        <table is="google-sheets-table" id="FTours" key="1R6P2Qaez75sWxGorgcFfuIY8ekQfjgfmayMuuZ_W79k" gid="346490659" headers="1"></table>
+      </div>
+      <div is="collapsible" data-role="collapsible" data-collapsed="true">
+        <h3>Add Tour</h3>
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfQ3K9iz7M5qnMtArK3hbwCd_zAyfd__p1ZXUlZjQ01m3ZJDQ/viewform?embedded=true" width="280" height="480" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+      </div>
+      <div is="collapsible" data-role="collapsible" data-collapsed="false">
+        <h3>Face Detection</h3>
+      </div>
+    </div>
+    <a  href="recaptcha.html" class="ui-btn ui-icon-action ui-btn-icon-left">Add User</a>
+  </div>
+  <div is="footer" data-role="footer" data-position="fixed" data-theme="b">
+    <h3>Footer</h3>
+  </div>
+</div>
+</body>
+
+</html>
