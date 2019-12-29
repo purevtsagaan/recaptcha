@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+  <link href="http://jqmdesigner.appspot.com/gk/lib/jquery.mobile/1.4.5/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css" />
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
+  <script>
+    $(document).on("mobileinit", function () {
+      $.mobile.autoInitializePage = false;
+      $.mobile.hashListeningEnabled = false;
+    });
+
+    function mobileInitPage() {
+      $.mobile.hashListeningEnabled = true;
+      $.mobile.initializePage();
+    }
+  </script>
+  <script src="https://www.google.com/recaptcha/api.js"></script>
+  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  <!-- Uncomment the following to include cordova in your android project -->
+  <!--<script src="http://jqmdesigner.appspot.com/platforms/android/cordova.js"></script>-->
+  <!-- GK Loader use RequireJS to load module -->
+  <script src="http://requirejs.org/docs/release/2.1.11/minified/require.js"></script>
+  <!--Plug in GK-->
+  <script src="http://jqmdesigner.appspot.com/components/jquery.gk/jquery.gk.min.js"></script>
+  <!-- Load GK components -->
+  <script components="http://jqmdesigner.appspot.com/components/gk-jquerymobile/content.html,http://jqmdesigner.appspot.com/components/gk-jquerymobile/page.html,http://jqmdesigner.appspot.com/components/gk-jquerymobile/footer.html,http://jqmdesigner.appspot.com/components/gk-ext/google-sheets-table.html,http://jqmdesigner.appspot.com/components/gk-jquerymobile/header.html"
+  callback="mobileInitPage" src="http://jqmdesigner.appspot.com/components/gk-loader/gk-loader.js"></script>
+  
+  <script src="https://www.google.com/recaptcha/api.js"></script>
+  <title>EZo App</title>
+</head>
+
+<body gk-app>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyAg_ghwKv-ZXhv_UUpMVlfbtGkAGwlX-Ek",
+    authDomain: "mongolian-travel-users.firebaseapp.com",
+    databaseURL: "https://mongolian-travel-users.firebaseio.com",
+    projectId: "mongolian-travel-users",
+    storageBucket: "mongolian-travel-users.appspot.com",
+    messagingSenderId: "860083685958",
+    appId: "1:860083685958:web:790e9ff861ddac65069847"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+
+
+  <!-- Page: home  -->
+<div id="home" data-role="page" is="page">
+  <div role="main" class="ui-content" is="content">
+    <h2 is="gk-text">Book your travel with us</h2>
+    <div is="collapsible-set" data-role="collapsibleset">
+      <div is="collapsible" data-role="collapsible" data-collapsed="false">
+        <h3>Search</h3>
+        <div is="fieldcontain" class="ui-field-contain">
+          <label for="gk-1229CLHA">Title</label>
+          <input is="search-input" type="search" name id="gk-1229CLHA">
+        </div>
+      </div>
+      <div is="collapsible" data-role="collapsible" data-collapsed="false">
+        <h3>Tours</h3>
+        <table is="google-sheets-table" id="FTours" key="1R6P2Qaez75sWxGorgcFfuIY8ekQfjgfmayMuuZ_W79k" gid="346490659" headers="1"></table>
+      </div>
+      <div is="collapsible" data-role="collapsible" data-collapsed="false">
+        <h3>Add Tour</h3>
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfQ3K9iz7M5qnMtArK3hbwCd_zAyfd__p1ZXUlZjQ01m3ZJDQ/viewform?embedded=true" width="280" height="480" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+      </div>
+      <div is="collapsible" data-role="collapsible" data-collapsed="false">
+        <h3>User Profiles</h3>
+		
+        <div class="container">
+    <h1>Order Form</h1>
+    <hr/>
+    <div class="row">
+      <div class="col-md-6">
+        <form method="post" name="contactForm">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" required placeholder="Enter name">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" required placeholder="Enter Email">
+          </div>
+          <h3>Location</h3>
+          <div class="form-group">
+            <label for="city">City</label>
+            <input type="text" class="form-control" id="city" placeholder="Enter City">
+          </div>
+          <div class="form-group">
+            <label for="email">State</label>
+            <input type="text" class="form-control" id="state" placeholder="Enter State">
+          </div>
+          <div class="form-group">
+            <label for="zip">Zip</label>
+            <input type="text" class="form-control" id="zip" placeholder="Enter Zip Code">
+          </div>
+		    <div class="g-recaptcha" data-callback="recaptchaCallback" data-sitekey="6LdVqMkUAAAAAOku5mZamHEH2FmzGbZLnnS2f1P-"></div>
+   
+</form>
+
+		  
+          <button type="submit" class="btn btn-primary addValue">Submit</button>
+        </form>
+      </div>
+      <div class="col-md-6">
+        <ul id="contacts" class="list-group">
+          <!-- Conatct Object li.list-group-item.contact will be added here by js -->
+        </ul>
+      </div>
+    </div>
+<div class="row">
+      <div class="col-md-6">
+<!-- <div><iframe src="//time2hack.com/ads.html" frameborder=0 class="embed-responsive-item" align="center"></iframe></div> -->
+</div>
+<div class="col-md-6">
+<!-- <div><iframe src="//time2hack.com/ads.html" frameborder=0 class="embed-responsive-item" align="center"></iframe></div> -->
+</div>
+</div>
+  </div>
+
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+
+  <!-- Latest compiled and minified Bootstrap -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <!-- Include Firebase Library -->
+  <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
+  <!-- Contacts Store JavaScript -->
+  <script src="script.js"></script>
+</body>
+
+</html>
